@@ -8,7 +8,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     int days = 30;
     return Scaffold(
-      
       appBar: AppBar(
         title: Text("CATALOG APP"),
       ),
@@ -17,13 +16,7 @@ class HomePage extends StatelessWidget {
           child: Text("Welcome to the home page of $days days of flutter"),
         ),
       ),
-
       drawer: SideBar(),
-      
     );
   }
 }
-
-
-
-
