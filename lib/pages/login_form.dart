@@ -1,33 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:myfirstapp/utilities/routes.dart';
 
-class LogInForm extends StatelessWidget {
+class LogInForm extends StatefulWidget {
   const LogInForm({super.key});
 
+  @override
+  State<LogInForm> createState() => _LogInFormState();
+}
+
+class _LogInFormState extends State<LogInForm> {
+  String name = "";
   @override
   Widget build(BuildContext context) {
     return Material(
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const Text(
-              "Log In",
+            Text(
+              "Welcome $name",
               style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
             ),
             Container(
-                padding: const EdgeInsets.all(20.0),
-                child: const TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Email or Phone",
-                        hintText: "Your Email or Phone number",
-                        hintStyle: TextStyle(color: Colors.grey),
-                        contentPadding: EdgeInsets.all(16.0)))),
+              padding: const EdgeInsets.all(20.0),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Username",
+                    hintText: "Your Username",
+                    hintStyle: TextStyle(color: Colors.grey),
+                    contentPadding: EdgeInsets.all(16.0)),
+                onChanged: (value) {
+                  name = value;
+                  setState(() {
+                    build(context);
+                  });
+                },
+              ),
+            ),
             Container(
               padding: const EdgeInsets.all(20.0),
-              child: const TextField(
+              child: TextFormField(
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Password",
                       hintText: "Your Password",

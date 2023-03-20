@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myfirstapp/pages/SideBar.dart';
+import 'package:myfirstapp/pages/card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,14 +10,17 @@ class HomePage extends StatelessWidget {
     int days = 30;
     return Scaffold(
       appBar: AppBar(
-        title: Text("CATALOG APP"),
+        title: Text("TOUR APP"),
       ),
       body: Center(
-        child: Container(
-          child: Text("Welcome to the home page of $days days of flutter"),
-        ),
+        child: CardPage(),
       ),
       drawer: SideBar(),
+      bottomNavigationBar: BottomAppBar(
+        child: Text("Bottom Navigation Bar", textAlign: TextAlign.center),
+        padding: EdgeInsets.all(20),
+        color: Colors.green,
+      ),
     );
   }
 }
