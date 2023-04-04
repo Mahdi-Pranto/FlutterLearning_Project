@@ -11,6 +11,8 @@ class LogInForm extends StatefulWidget {
 class _LogInFormState extends State<LogInForm> {
   String name = "";
   bool changedBtn = false;
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -21,33 +23,51 @@ class _LogInFormState extends State<LogInForm> {
               "Welcome $name",
               style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
             ),
-            Container(
-              padding: const EdgeInsets.all(20.0),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Username",
-                    hintText: "Your Username",
-                    hintStyle: TextStyle(color: Colors.grey),
-                    contentPadding: EdgeInsets.all(16.0)),
-                onChanged: (value) {
-                  name = value;
-                  setState(() {
-                    build(context);
-                  });
-                },
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(20.0),
-              child: TextFormField(
-                  obscureText: true,
+            Form(
+              child: Container(
+                padding: const EdgeInsets.all(20.0),
+                child: TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please type username";
+                    }
+                    return null;
+                  },
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: "Password",
-                      hintText: "Your Password",
+                      labelText: "Username",
+                      hintText: "Your Username",
                       hintStyle: TextStyle(color: Colors.grey),
-                      contentPadding: EdgeInsets.all(16.0))),
+                      contentPadding: EdgeInsets.all(16.0)),
+                  onChanged: (value) {
+                    name = value;
+                    setState(() {
+                      build(context);
+                    });
+                  },
+                ),
+              ),
+            ),
+            Form(
+              child: Container(
+                padding: const EdgeInsets.all(20.0),
+                child: TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Please type username";
+                      } else if (value.length < 6) {
+                        return "Please enter 6 or more digit";
+                      }
+                      return null;
+                    },
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Password",
+                        hintText: "Your Password",
+                        hintStyle: TextStyle(color: Colors.grey),
+                        contentPadding: EdgeInsets.all(16.0))),
+              ),
             ),
             TextButton(
               onPressed: () {},
@@ -59,7 +79,10 @@ class _LogInFormState extends State<LogInForm> {
                   changedBtn = true;
                 });
                 await Future.delayed(Duration(seconds: 1));
-                Navigator.pushNamed(context, MyRoutes.homeRoute);
+                await Navigator.pushNamed(context, MyRoutes.homeRoute);
+                setState(() {
+                  changedBtn = false;
+                });
               },
               child: AnimatedContainer(
                 duration: Duration(seconds: 1),
