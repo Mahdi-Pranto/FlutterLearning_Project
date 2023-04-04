@@ -10,6 +10,7 @@ class LogInForm extends StatefulWidget {
 
 class _LogInFormState extends State<LogInForm> {
   String name = "";
+  bool changedBtn = false;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -52,17 +53,35 @@ class _LogInFormState extends State<LogInForm> {
               onPressed: () {},
               child: const Text("Forget Password?"),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 83, 86, 245), // background
-                foregroundColor: Colors.black, // foreground
-              ),
-              onPressed: () {
+            InkWell(
+              onTap: () async {
+                setState(() {
+                  changedBtn = true;
+                });
+                await Future.delayed(Duration(seconds: 1));
                 Navigator.pushNamed(context, MyRoutes.homeRoute);
               },
-              child: const Text('Log in',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-            )
+              child: AnimatedContainer(
+                duration: Duration(seconds: 1),
+                width: changedBtn ? 50 : 150,
+                height: 50,
+                alignment: Alignment.center,
+                child: changedBtn
+                    ? Icon(Icons.done)
+                    : Text(
+                        'Log in',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.black),
+                      ),
+                decoration: BoxDecoration(
+                    color: Colors.deepPurpleAccent,
+                    borderRadius: changedBtn
+                        ? BorderRadius.circular(50)
+                        : BorderRadius.circular(8)),
+              ),
+            ),
           ],
         ),
       ),
