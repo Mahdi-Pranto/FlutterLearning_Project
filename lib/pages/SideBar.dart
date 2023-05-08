@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utilities/routes.dart';
+
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
 
@@ -27,7 +29,7 @@ class SideBar extends StatelessWidget {
               title: Text("Show map"),
               leading: Icon(Icons.map),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, MyRoutes.mapRoute);
               },
             ),
             ListTile(
