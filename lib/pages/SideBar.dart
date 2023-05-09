@@ -60,6 +60,13 @@ class SideBar extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            ListTile(
+              leading: Icon(Icons.api),
+              title: Text('Api test'),
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.apiRoute);
+              },
+            ),
           ],
         ),
       ),
