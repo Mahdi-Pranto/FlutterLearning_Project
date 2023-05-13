@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfirstapp/pages/login_api.dart';
 import 'package:myfirstapp/utilities/routes.dart';
 
 class LogInForm extends StatefulWidget {
@@ -12,6 +13,9 @@ class _LogInFormState extends State<LogInForm> {
   String name = "";
   bool changedBtn = false;
   final _formKey = GlobalKey<FormState>();
+
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +32,7 @@ class _LogInFormState extends State<LogInForm> {
               Container(
                 padding: const EdgeInsets.all(20.0),
                 child: TextFormField(
+                  controller: emailController,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please type username";
@@ -36,8 +41,8 @@ class _LogInFormState extends State<LogInForm> {
                   },
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: "Username",
-                      hintText: "Your Username",
+                      labelText: "Email",
+                      hintText: "Enter your email",
                       hintStyle: TextStyle(color: Colors.grey),
                       contentPadding: EdgeInsets.all(16.0)),
                   onChanged: (value) {
@@ -51,6 +56,7 @@ class _LogInFormState extends State<LogInForm> {
               Container(
                 padding: const EdgeInsets.all(20.0),
                 child: TextFormField(
+                  controller: passwordController,
                   obscureText: true,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -84,11 +90,17 @@ class _LogInFormState extends State<LogInForm> {
                         changedBtn = true;
                       });
                       await Future.delayed(Duration(seconds: 1));
-                      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      // await Navigator.pushNamed(context, MyRoutes.homeRoute);
                       setState(() {
                         changedBtn = false;
                       });
+
+                      return;
                     }
+
+                    String email = emailController.text;
+                    String password = passwordController.text;
+                     print( await LoginApi.fetch(email, "1234566"));
                   },
                   child: AnimatedContainer(
                     duration: Duration(seconds: 1),

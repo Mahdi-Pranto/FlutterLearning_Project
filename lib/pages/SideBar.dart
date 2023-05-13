@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfirstapp/pages/api_test.dart';
 
 import '../utilities/routes.dart';
 
@@ -64,7 +65,9 @@ class SideBar extends StatelessWidget {
               leading: Icon(Icons.api),
               title: Text('Api test'),
               onTap: () {
-                Navigator.pushNamed(context, MyRoutes.apiRoute);
+                // Navigator.pushNamed(context, MyRoutes.apiRoute);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ApiPage()));
               },
             ),
           ],
