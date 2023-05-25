@@ -90,7 +90,7 @@ class _LogInFormState extends State<LogInForm> {
                         changedBtn = true;
                       });
                       await Future.delayed(Duration(seconds: 1));
-                      // await Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      await Navigator.pushNamed(context, MyRoutes.homeRoute);
                       setState(() {
                         changedBtn = false;
                       });
@@ -100,7 +100,8 @@ class _LogInFormState extends State<LogInForm> {
 
                     String email = emailController.text;
                     String password = passwordController.text;
-                     print( await LoginApi.fetch(email, "1234566"));
+
+                    print(LoginApi.fetch(email, password));
                   },
                   child: AnimatedContainer(
                     duration: Duration(seconds: 1),
