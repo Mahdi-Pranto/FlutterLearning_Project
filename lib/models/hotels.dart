@@ -1,26 +1,27 @@
-class Items {
-  final products = [
-    Item(
-        id: 1,
-        name: "Hotel New Sea",
-        location: "Zero point",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam",
-        price: 800),
-  ];
-}
+class HotelModel {
+  int? id;
+  String? name;
+  String? location;
+  String? description;
+  int? price;
 
-class Item {
-  final int id;
-  final String name;
-  final String location;
-  final String description;
-  final int price;
+  HotelModel(this.id, this.name, this.location, this.description, this.price);
 
-  Item(
-      {required this.id,
-      required this.name,
-      required this.location,
-      required this.description,
-      required this.price});
+  HotelModel.fromMap(Map<String, dynamic> map) {
+    id = map["id"];
+    name = map["name"];
+    location = map["location"];
+    description = map["description"];
+    price = map["price"];
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      "id": id,
+      "name": name,
+      "location": location,
+      "description": description,
+      "price": price
+    };
+  }
 }
