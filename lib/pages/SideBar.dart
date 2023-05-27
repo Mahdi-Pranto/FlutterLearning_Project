@@ -27,7 +27,7 @@ class SideBar extends StatelessWidget {
                   ),
                 )),
             ListTile(
-              title: Text("Show map / hotel"),
+              title: Text("Hotels"),
               leading: Icon(Icons.map),
               onTap: () {
                 Navigator.pushNamed(context, MyRoutes.hotelRoute);

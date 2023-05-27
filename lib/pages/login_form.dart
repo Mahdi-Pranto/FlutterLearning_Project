@@ -39,12 +39,6 @@ class _LogInFormState extends State<LogInForm> {
                     }
                     return null;
                   },
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Email",
-                      hintText: "Enter your email",
-                      hintStyle: TextStyle(color: Colors.grey),
-                      contentPadding: EdgeInsets.all(16.0)),
                   onChanged: (value) {
                     name = value;
                     setState(() {

@@ -13,7 +13,7 @@ List<Map<String, dynamic>> clientList = [
     "location": "Zero point",
     "description":
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam",
-    "price": 800
+    "price": 700
   },
   {
     "id": 1,
@@ -21,7 +21,7 @@ List<Map<String, dynamic>> clientList = [
     "location": "Zero point",
     "description":
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam",
-    "price": 800
+    "price": 600
   },
   {
     "id": 1,
@@ -29,7 +29,7 @@ List<Map<String, dynamic>> clientList = [
     "location": "Zero point",
     "description":
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam",
-    "price": 800
+    "price": 650
   },
   {
     "id": 1,
@@ -37,6 +37,6 @@ List<Map<String, dynamic>> clientList = [
     "location": "Zero point",
     "description":
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam",
-    "price": 800
+    "price": 550
   },
 ];

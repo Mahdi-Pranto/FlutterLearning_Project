@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myfirstapp/models/hotels.dart';
+import 'package:myfirstapp/pages/set_new_location.dart';
 import 'package:myfirstapp/utilities/routes.dart';
 
 import '../data.dart';
@@ -18,6 +19,8 @@ class CardPage extends StatefulWidget {
 class _CardPageState extends State<CardPage> {
   bool isFirstImage = false;
   bool isSecondImage = false;
+  bool isThirdImage = false;
+  bool isForthImage = false;
 
   @override
   Widget build(BuildContext context) {
@@ -66,10 +69,6 @@ class _CardPageState extends State<CardPage> {
                 color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
-            TextField(
-              style: TextStyle(
-                  backgroundColor: Color.fromARGB(255, 134, 221, 137)),
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -79,11 +78,19 @@ class _CardPageState extends State<CardPage> {
                     children: <Widget>[
                       Visibility(
                         visible: isFirstImage,
-                        child: Image.network(
-                          'https://live.staticflickr.com/7003/6611298277_9689726a7f_b.jpg',
-                          fit: BoxFit.cover,
-                          height: 150,
-                          width: 150,
+                        child: Column(
+                          children: [
+                            Image.network(
+                              'https://live.staticflickr.com/7003/6611298277_9689726a7f_b.jpg',
+                              fit: BoxFit.cover,
+                              height: 150,
+                              width: 150,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Text('Kolatoli Beach'),
+                            ),
+                          ],
                         ),
                       ),
                       ElevatedButton(
@@ -94,11 +101,7 @@ class _CardPageState extends State<CardPage> {
                                     () => isFirstImage = true,
                                   );
                           },
-                          child: Text("first image")),
-                      Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Text('Kolatoli Beach'),
-                      ),
+                          child: Text("See Place")),
                     ],
                   ),
                 ),
@@ -113,11 +116,19 @@ class _CardPageState extends State<CardPage> {
                     children: <Widget>[
                       Visibility(
                         visible: isSecondImage,
-                        child: Image.network(
-                          'https://www.touristplaces.com.bd/images/pp/5/p114771.jpg',
-                          fit: BoxFit.cover,
-                          height: 150,
-                          width: 150,
+                        child: Column(
+                          children: [
+                            Image.network(
+                              'https://www.touristplaces.com.bd/images/pp/5/p114771.jpg',
+                              fit: BoxFit.cover,
+                              height: 150,
+                              width: 150,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Text('Shugondha Beach'),
+                            ),
+                          ],
                         ),
                       ),
                       ElevatedButton(
@@ -126,11 +137,7 @@ class _CardPageState extends State<CardPage> {
                                 ? setState(() => isSecondImage = false)
                                 : setState(() => isSecondImage = true);
                           },
-                          child: Text("2nd image")),
-                      Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Text('Kolatoli Beach'),
-                      ),
+                          child: Text("See Place")),
                     ],
                   ),
                 ),
@@ -148,16 +155,32 @@ class _CardPageState extends State<CardPage> {
                   color: Colors.grey.shade200,
                   child: Column(
                     children: <Widget>[
-                      Image.network(
-                        'https://www.localguidesconnect.com/t5/image/serverpage/image-id/1278258i67EFCFE965F69109?v=v2',
-                        fit: BoxFit.cover,
-                        height: 150,
-                        width: 150,
+                      Visibility(
+                        visible: isThirdImage,
+                        child: Column(
+                          children: [
+                            Image.network(
+                              'https://www.localguidesconnect.com/t5/image/serverpage/image-id/1278258i67EFCFE965F69109?v=v2',
+                              fit: BoxFit.cover,
+                              height: 150,
+                              width: 150,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Text('Inani Beach'),
+                            ),
+                          ],
+                        ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Text('Kolatoli Beach'),
-                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            isThirdImage
+                                ? setState(() => isThirdImage = false)
+                                : setState(
+                                    () => isThirdImage = true,
+                                  );
+                          },
+                          child: Text("See Place")),
                     ],
                   ),
                 ),
@@ -170,21 +193,36 @@ class _CardPageState extends State<CardPage> {
                   color: Colors.grey.shade200,
                   child: Column(
                     children: <Widget>[
-                      Image.network(
-                        'https://www.travelandexplorebd.com/storage/app/public/posts/March2020/9hyD6VMjOYYQqvkX0YtS.jpg',
-                        fit: BoxFit.cover,
-                        height: 150,
-                        width: 150,
+                      Visibility(
+                        visible: isForthImage,
+                        child: Column(
+                          children: [
+                            Image.network(
+                              'https://www.travelandexplorebd.com/storage/app/public/posts/March2020/9hyD6VMjOYYQqvkX0YtS.jpg',
+                              fit: BoxFit.cover,
+                              height: 150,
+                              width: 150,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Text('Fun Fest Beach'),
+                            ),
+                          ],
+                        ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Text('Kolatoli Beach'),
-                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            isForthImage
+                                ? setState(() => isForthImage = false)
+                                : setState(() => isForthImage = true);
+                          },
+                          child: Text("See Place")),
                     ],
                   ),
                 ),
               ],
             ),
+            const SetNewLocation()
           ],
         ),
       ),
