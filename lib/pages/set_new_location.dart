@@ -10,8 +10,10 @@ class SetNewLocation extends StatefulWidget {
 }
 
 class _SetNewLocationState extends State<SetNewLocation> {
-  String locationName = "";
+  String locationName = "Set Location";
   var isDone = false;
+
+  final TextEditingController myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class _SetNewLocationState extends State<SetNewLocation> {
           child: Column(
             children: <Widget>[
               Visibility(
+                visible: isDone,
                 child: Column(
                   children: [
                     Image.network(
@@ -43,12 +46,13 @@ class _SetNewLocationState extends State<SetNewLocation> {
         Padding(padding: EdgeInsets.only(top: 20)),
         Center(
             child: Text(
-          "Set location",
+          "Set Location",
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         )),
         Container(
           padding: EdgeInsets.all(20),
           child: TextFormField(
+            controller: myController,
             decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Name of the Location",
@@ -58,7 +62,16 @@ class _SetNewLocationState extends State<SetNewLocation> {
             style: TextStyle(fontSize: 15),
           ),
         ),
-        ElevatedButton(onPressed: () {}, child: Text("Done"))
+        ElevatedButton(
+            onPressed: () {
+              isDone
+                  ? setState(() => isDone = false)
+                  : setState(
+                      () => isDone = true,
+                    );
+              locationName = myController.text;
+            },
+            child: Text("Done"))
       ],
     );
   }
