@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SetNewLocation extends StatefulWidget {
   const SetNewLocation({super.key});
@@ -62,6 +63,12 @@ class _SetNewLocationState extends State<SetNewLocation> {
             style: TextStyle(fontSize: 15),
           ),
         ),
+        TextButton(
+            onPressed: () {},
+            child: Text(
+              "Add Photo",
+              style: TextStyle(decoration: TextDecoration.underline),
+            )),
         ElevatedButton(
             onPressed: () {
               isDone
