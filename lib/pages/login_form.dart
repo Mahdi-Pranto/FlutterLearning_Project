@@ -33,6 +33,12 @@ class _LogInFormState extends State<LogInForm> {
                 padding: const EdgeInsets.all(20.0),
                 child: TextFormField(
                   controller: emailController,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Username",
+                      hintText: "Your Username",
+                      hintStyle: TextStyle(color: Colors.grey),
+                      contentPadding: EdgeInsets.all(16.0)),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please type username";
