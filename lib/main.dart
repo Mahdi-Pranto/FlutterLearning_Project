@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:myfirstapp/pages/Mythems.dart';
+import 'package:myfirstapp/pages/album.dart';
 import 'package:myfirstapp/pages/api_test.dart';
 import 'package:myfirstapp/pages/google_map.dart';
 import 'package:myfirstapp/pages/hotels.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.mapRoute: (context) => Google_Map(),
         MyRoutes.apiRoute: (context) => ApiPage(),
         MyRoutes.hotelRoute: (context) => Hotel(),
+        MyRoutes.albumRoute: (context) => Album(),
       },
     );
   }

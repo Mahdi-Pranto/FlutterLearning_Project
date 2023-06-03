@@ -37,7 +37,7 @@ class SideBar extends StatelessWidget {
               leading: Icon(Icons.photo_album),
               title: Text('Album'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, MyRoutes.albumRoute);
               },
             ),
             ListTile(
