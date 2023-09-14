@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../data.dart';
-import '../models/hotels.dart';
+import '../models/hotel_model.dart';
 
 class Hotel extends StatelessWidget {
   const Hotel({super.key});
@@ -23,7 +23,7 @@ class Hotel extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20, right: 30, top: 20),
               child: ListTile(
                 trailing: Text(
-                  "${item.price}\$",
+                  "Heloo",
                   textScaleFactor: 1.5,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
