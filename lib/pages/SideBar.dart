@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myfirstapp/pages/api_test.dart';
 
 import '../utilities/routes.dart';
+import 'google_map.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
@@ -68,6 +69,14 @@ class SideBar extends StatelessWidget {
                 // Navigator.pushNamed(context, MyRoutes.apiRoute);
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ApiPage()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Dropdown'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Google_Map()));
               },
             ),
           ],

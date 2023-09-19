@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myfirstapp/models/hotels.dart';
+import 'package:myfirstapp/models/hotel_model.dart';
 import 'package:myfirstapp/pages/set_new_location.dart';
 import 'package:myfirstapp/utilities/routes.dart';
 

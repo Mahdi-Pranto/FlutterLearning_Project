@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:myfirstapp/pages/models.dart';
+import 'package:myfirstapp/models/models.dart';
 
 class ApiPage extends StatefulWidget {
   ApiPage({super.key});
